@@ -1,0 +1,61 @@
+# the random module randomizes the input and contains function slike randint, randn,randcount etc.
+import random
+
+# We create a list containing 3 strings and initialize player and computer counts to 0
+options = ["Rock", "Paper", "Scissor"]
+player_wins = 0
+computer_wins = 0
+
+# The input function asks for the user input
+initial = input("Do you want to play? Yes/No: ")
+
+# if the user enters 'Yes' and while the condition is True the input function takes the user input while the random.choice function randomly chooses the computer's choice
+
+if initial == "Yes":
+
+    while True:
+        player = input("Pick from either Rock, Paper or Scissor: ")
+        computer = random.choice(options)
+        print("The computer chooses:", computer)
+# Series of conditional if-else operators that determines a tie if both user and computer choices are same and determines the ordered weight as Paper > Rock, Rock > Scissor, Scissor > Paper. 
+# Also, in each case either the player or computer win count is increased by 1.
+        if (player == computer):
+            print("It's a tie")
+
+        elif (computer == 'Paper') and (player=='Rock'):
+            print('Paper beats Rock, computer wins')
+            computer_wins += 1
+        elif (computer == 'Scissor') and (player=='Rock'):
+            print('Rock beats Scissor, player wins')
+            player_wins += 1
+
+        elif (computer == 'Scissor') and (player=='Paper'):
+            print("Scissor beats paper, computer wins")
+            computer_wins +=1
+
+        elif (computer == "Paper") and (player=="Scissor"):
+            print("Scissor beats paper, player wins")
+            player_wins += 1
+        elif (computer == 'Rock') and (player=="Scissor"):
+            print("Rock beats scissor, computer wins")
+            computer_wins +=1
+
+        elif (computer=="Rock") and (player == "Paper"):
+            print("Paper beats Rock, player wins")
+            player_wins += 1
+
+# At the end of each evaluation the player and computer scores are  printed. .format() method used to print multipke outputs using string formatting
+        print("The player score is {}, while the computer score is {} ". format(player_wins, computer_wins))
+
+# User asked if they want to continue and a continue or break used for the control of the loop
+        user_input = input("Do you want to continue - Yes or No: ")
+        if (user_input == "Yes"):
+            continue
+        if (user_input == "No"):
+            break
+# if the user input is 'No', end loop and print Thank You message
+elif initial == "No":
+    print('Goodbye!')
+    print('Thank you for your time.')
+print('Goodbye!')
+print('Thank you for your time.')
